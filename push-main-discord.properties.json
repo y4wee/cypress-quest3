@@ -1,0 +1,8 @@
+{
+    "name": "Nuprod Workflow Push Notification Discord",
+    "description": "Workflow push notification discord.",
+    "iconName": "example-icon",
+    "categories": [
+        "deployment"
+    ]
+}
