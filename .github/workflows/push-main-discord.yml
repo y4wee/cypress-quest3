@@ -14,4 +14,4 @@ jobs:
               with:
                   webhook_id: ${{ secrets.WEBHOOK_ID }}
                   webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-                  args: "${{ github.actor }} a effectué un push sur ${{ github.repository }}.\nVoir le commit ici : https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+                  args: "${{ github.actor }} a effectué un push sur ${{ github.workspace }}.\nVoir le commit ici : https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
