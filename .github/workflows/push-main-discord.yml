@@ -1,5 +1,8 @@
 name: discord message
-on: [push]
+on:
+    push:
+        branches:
+            - main
 jobs:
     build:
         name: Build
@@ -11,7 +14,4 @@ jobs:
               with:
                   webhook_id: ${{ secrets.WEBHOOK_ID }}
                   webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-                  args: ${{ github.event_name }} event triggered first step.
-                  #   https://discord.com/api/webhooks/1168836836148392086/7tNgvwa2PTV6XCVhApINjP88CPGL-RhRReq0ORm0ngCQU3w6s1OBluWFq_em4v0ubad_
-
-                  #   7tNgvwa2PTV6XCVhApINjP88CPGL-RhRReq0ORm0ngCQU3w6s1OBluWFq_em4v0ubad_
+                  args: "${{ github.actor }} a effectué un push.\nVoir le commit ici : https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
