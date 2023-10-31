@@ -9,9 +9,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+
+            - name: Extract repository name
+              id: repo_name
+              run: echo "::set-output name=repository::$(echo ${{ github.repository }} | cut -d'/' -f2)"
+              
             - name: send custom message with args
               uses: appleboy/discord-action@master
               with:
                   webhook_id: ${{ secrets.WEBHOOK_ID }}
                   webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-                  args: "${{ github.actor }} a effectué un push sur ${{ github.workspace }}.\nVoir le commit ici : https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+                  args: "${{ github.actor }} a effectué un push sur ${{ steps.repo_name.outputs.repository }}.\nVoir le commit ici : https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
